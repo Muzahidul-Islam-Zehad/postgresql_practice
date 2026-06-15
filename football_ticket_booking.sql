@@ -19,3 +19,9 @@ inner join matches using(match_id);
 -- problem 5:
 select user_id, full_name, booking_id from users
 left join bookings using(user_id);
+
+-- problem 6:
+select booking_id, match_id, total_cost from bookings
+where total_cost > (
+  select avg(total_cost) from bookings
+);
